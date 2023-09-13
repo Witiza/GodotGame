@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cogld5yh7ionp"]
+
+[ext_resource type="Script" path="res://Root/root.gd" id="1_5kq3a"]
+[ext_resource type="Shape2D" uid="uid://chkx5t82teoyh" path="res://Shapes/groundShape.tres" id="1_lauxh"]
+[ext_resource type="Shape2D" uid="uid://71lg33ywnlki" path="res://Shapes/characterShape.tres" id="2_sdlsi"]
+[ext_resource type="Texture2D" uid="uid://dnscdws1c5uiq" path="res://Root/lynx mtg.jpeg" id="3_i70fu"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_5kq3a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(61, 36)
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(13, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = ExtResource("2_sdlsi")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_i70fu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 72)
+shape = ExtResource("1_lauxh")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-52, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = ExtResource("2_sdlsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
