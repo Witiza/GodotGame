@@ -1,39 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cogld5yh7ionp"]
+[gd_scene load_steps=5 format=3 uid="uid://dacejc4p5glj5"]
 
-[ext_resource type="Script" path="res://Root/root.gd" id="1_5kq3a"]
-[ext_resource type="Shape2D" uid="uid://chkx5t82teoyh" path="res://Shapes/groundShape.tres" id="1_lauxh"]
-[ext_resource type="Shape2D" uid="uid://71lg33ywnlki" path="res://Shapes/characterShape.tres" id="2_sdlsi"]
-[ext_resource type="Texture2D" uid="uid://dnscdws1c5uiq" path="res://Root/lynx mtg.jpeg" id="3_i70fu"]
+[ext_resource type="SpriteFrames" uid="uid://cmiyaa3sc32c4" path="res://Animations/PlayerAnimation.tres" id="1_rhchw"]
+[ext_resource type="Script" path="res://Scripts/PlayerVariables.cs" id="1_s1iaq"]
+[ext_resource type="Shape2D" uid="uid://caj3x027ks82k" path="res://Shapes/PlayerCollider.tres" id="2_trcpt"]
+[ext_resource type="Script" path="res://Scripts/Playerinput.cs" id="3_4qumx"]
 
-[node name="Root" type="Node2D"]
-script = ExtResource("1_5kq3a")
+[node name="Player" type="Node2D"]
+position = Vector2(1022, 534)
+script = ExtResource("1_s1iaq")
+metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(61, 36)
-editor_draw_limits = true
-editor_draw_drag_margin = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_rhchw")
+animation = &"Idle"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(13, -17)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = ExtResource("2_sdlsi")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_i70fu")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 72)
-shape = ExtResource("1_lauxh")
+[node name="Input" type="Node" parent="." node_paths=PackedStringArray("_playerVariables")]
+script = ExtResource("3_4qumx")
+_playerVariables = NodePath("..")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-52, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = ExtResource("2_sdlsi")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(6.56, 4.4)
+shape = ExtResource("2_trcpt")

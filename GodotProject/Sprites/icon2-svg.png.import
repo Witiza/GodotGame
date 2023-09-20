@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnscdws1c5uiq"
-path="res://.godot/imported/lynx mtg.jpeg-d6d84fb43bf95669d3c07eabbe1fa991.ctex"
+uid="uid://3lhqojl71bba"
+path="res://.godot/imported/icon2-svg.png-fa8ac632c2f7e52d68cdab543eba40d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Root/lynx mtg.jpeg"
-dest_files=["res://.godot/imported/lynx mtg.jpeg-d6d84fb43bf95669d3c07eabbe1fa991.ctex"]
+source_file="res://Sprites/icon2-svg.png"
+dest_files=["res://.godot/imported/icon2-svg.png-fa8ac632c2f7e52d68cdab543eba40d7.ctex"]
 
 [params]
 
