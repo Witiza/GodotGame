@@ -1,25 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://dacejc4p5glj5"]
+[gd_scene load_steps=6 format=3 uid="uid://dacejc4p5glj5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cmiyaa3sc32c4" path="res://Animations/PlayerAnimation.tres" id="1_rhchw"]
 [ext_resource type="Script" path="res://Scripts/PlayerVariables.cs" id="1_s1iaq"]
 [ext_resource type="Shape2D" uid="uid://caj3x027ks82k" path="res://Shapes/PlayerCollider.tres" id="2_trcpt"]
 [ext_resource type="Script" path="res://Scripts/Playerinput.cs" id="3_4qumx"]
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="4_e5117"]
 
-[node name="Player" type="Node2D"]
-position = Vector2(1022, 534)
-script = ExtResource("1_s1iaq")
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_playerVariables")]
+script = ExtResource("4_e5117")
+_playerVariables = NodePath("PlayerVariables")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_rhchw")
 animation = &"Idle"
 
-[node name="Input" type="Node" parent="." node_paths=PackedStringArray("_playerVariables")]
-script = ExtResource("3_4qumx")
-_playerVariables = NodePath("..")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.56, 4.4)
 shape = ExtResource("2_trcpt")
+
+[node name="Input" type="Node" parent="." node_paths=PackedStringArray("_playerVariables")]
+script = ExtResource("3_4qumx")
+_playerVariables = NodePath("../PlayerVariables")
+
+[node name="PlayerVariables" type="Node" parent="."]
+script = ExtResource("1_s1iaq")
+Speed = 50000.0
+JumpImpulse = -1000.0
+Gravity = 1000.0
