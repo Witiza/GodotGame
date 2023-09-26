@@ -1,28 +1,22 @@
 [gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cmiyaa3sc32c4"]
 
-[ext_resource type="Texture2D" uid="uid://dgis51lewxd7i" path="res://Sprites/icon.svg" id="1_2yx43"]
-[ext_resource type="Texture2D" uid="uid://3lhqojl71bba" path="res://Sprites/icon2-svg.png" id="2_6svno"]
+[ext_resource type="Texture2D" uid="uid://ctpneofxvvb1i" path="res://Sprites/Entities.png" id="1_nmjh5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei2cs"]
+atlas = ExtResource("1_nmjh5")
+region = Rect2(5, 18, 56, 73)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2yx43")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_2yx43")
+"texture": SubResource("AtlasTexture_ei2cs")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_6svno")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_2yx43")
-}],
+"frames": [],
 "loop": true,
 "name": &"Moving",
 "speed": 5.0
